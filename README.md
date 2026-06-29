@@ -71,13 +71,15 @@ CASE-CENTER-AUTOMATION/
 │   │   ├── CaseSearchPage.ts
 │   │   └── CaseCreatePage.ts
 │   ├── test-data/
-│   │   ├── login-email-verification.json
-│   │   ├── search-case.json
-│   │   └── create-case.json
+│   │   ├── TC_001_login-email-verification.json
+│   │   ├── TC_002_search-case.json
+│   │   ├── TC_003_create-case.json
+│   │   └── TC_004_review-evidence.json
 │   ├── tests/
-│   │   ├── login-email-verification.spec.ts
-│   │   ├── search-case.spec.ts
-│   │   └── create-case.spec.ts
+│   │   ├── TC_001_login-email-verification.spec.ts
+│   │   ├── TC_002_search-case.spec.ts
+│   │   ├── TC_003_create-case.spec.ts
+│   │   └── TC_004_review-evidence.spec.ts
 │   └── utils/
 │       ├── envHelper.ts
 │       ├── jsonHelper.ts
@@ -106,12 +108,12 @@ Runs tests in headed mode.
 npm run test:headed
 ```
 
-Runs tests in headed mode with x parallel workers (default is 1). Adjust the number as needed.
+Runs tests in headed mode with 3 parallel workers (default is 1). Adjust the number as needed.
 ```bash
-npm run test:headed -- --workers=x
+npm run test:headed -- --workers=3
 ```
 
-Runs only the login test in the `login` project and refreshes `auth/storageState.json`.
+Runs only `TC_001_login-email-verification.spec.ts` in the `login` project and refreshes `auth/storageState.json`.
 ```bash
 npm run test:refresh-auth
 ```
@@ -128,17 +130,17 @@ npm run report
 
 Runs a single test file in default (headless) mode.
 ```bash
-npx playwright test src/tests/search-case.spec.ts
+npx playwright test src/tests/TC_002_search-case.spec.ts
 ```
 
 Runs a single test file in headed mode.
 ```bash
-npx playwright test src/tests/search-case.spec.ts --headed
+npx playwright test src/tests/TC_002_search-case.spec.ts --headed
 ```
 
 ## Authentication Flow
 
-- `login` project runs `src/tests/login-email-verification.spec.ts` without storage state.
+- `login` project runs `src/tests/TC_001_login-email-verification.spec.ts` without storage state.
 - On success, it writes `auth/storageState.json`.
 - `test` project uses that storage state for the remaining specs.
 
