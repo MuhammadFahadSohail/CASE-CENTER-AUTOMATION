@@ -13,8 +13,11 @@ Functional validation remains important, but this framework is designed mainly f
 
 ## Prerequisites
 
-- Node.js 20+
-- npm 9+
+| Tool    | Version        | Check            |
+| ------- | -------------- | ---------------- |
+| Node.js | 20.x or higher | `node --version` |
+| npm     | 9.x or higher  | `npm --version`  |
+| Git     | Any            | `git --version`  |
 - A valid Case Center test account
 - Outlook mailbox access for verification-code and case-link email flows
 
